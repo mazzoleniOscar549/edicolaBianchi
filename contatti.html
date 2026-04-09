@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="light" lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contatti - La Tabaccheria Bianchi</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tertiary": "#321a13",
+          "background": "#fcf9f2",
+          "surface-dim": "#dcdad3",
+          "outline-variant": "#c4c6cf",
+          "tertiary-fixed": "#ffdbd0",
+          "on-surface-variant": "#43474e",
+          "on-secondary-fixed": "#241a00",
+          "tertiary-container": "#4a2f27",
+          "secondary-fixed-dim": "#e9c349",
+          "inverse-on-surface": "#f3f0e9",
+          "outline": "#74777f",
+          "tertiary-fixed-dim": "#e7bdb1",
+          "surface-variant": "#e5e2db",
+          "surface-container-high": "#ebe8e1",
+          "on-primary-container": "#86a0cd",
+          "on-primary-fixed": "#001b3c",
+          "on-tertiary": "#ffffff",
+          "on-primary-fixed-variant": "#2d476f",
+          "inverse-surface": "#31312c",
+          "surface-bright": "#fcf9f2",
+          "surface": "#fcf9f2",
+          "secondary-fixed": "#ffe088",
+          "on-error": "#ffffff",
+          "primary-fixed-dim": "#adc7f7",
+          "on-tertiary-container": "#bc968b",
+          "inverse-primary": "#adc7f7",
+          "surface-container": "#f1eee7",
+          "on-primary": "#ffffff",
+          "on-background": "#1c1c18",
+          "on-tertiary-fixed": "#2c160e",
+          "secondary-container": "#fed65b",
+          "on-secondary": "#ffffff",
+          "surface-tint": "#455f88",
+          "surface-container-low": "#f6f3ec",
+          "primary": "#002045",
+          "on-secondary-fixed-variant": "#574500",
+          "on-surface": "#1c1c18",
+          "error": "#ba1a1a",
+          "on-tertiary-fixed-variant": "#5d4037",
+          "surface-container-highest": "#e5e2db",
+          "surface-container-lowest": "#ffffff",
+          "primary-container": "#1a365d",
+          "error-container": "#ffdad6",
+          "primary-fixed": "#d6e3ff",
+          "on-secondary-container": "#745c00",
+          "secondary": "#735c00",
+          "on-error-container": "#93000a"
+        },
+        borderRadius: {
+          DEFAULT: "0.125rem",
+          lg: "0.25rem",
+          xl: "0.5rem",
+          full: "0.75rem"
+        },
+        fontFamily: {
+          headline: ["Manrope"],
+          body: ["Work Sans"],
+          label: ["Work Sans"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  body { font-family: 'Work Sans', sans-serif; }
+  h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f2]/80 backdrop-blur-md shadow-sm border-b border-[#f6f3ec]/50">
+  <nav class="flex justify-between items-center px-4 md:px-8 h-16 md:h-20 w-full">
+    <a class="text-xl md:text-2xl font-black tracking-tighter text-[#002045] font-headline hover:opacity-80 transition-opacity" href="home.html">Bianchi</a>
+
+    <!-- Menu desktop -->
+    <div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight text-sm uppercase absolute left-1/2 -translate-x-1/2">
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="home.html">Home</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="chi-siamo.html">Chi Siamo</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="servizi.html">Servizi</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="prenotazione-spid.html">SPID</a>
+      <a class="text-[#002045] border-b-2 border-[#fed65b] pb-1" href="contatti.html">Contatti</a>
+    </div>
+
+    <!-- Hamburger mobile -->
+    <button class="md:hidden text-[#002045]" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile a tendina -->
+  <div class="hidden md:hidden bg-[#fcf9f2] border-t border-outline-variant/20 px-6 py-4 space-y-4 font-headline font-bold text-sm uppercase" id="mobile-menu">
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="home.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="chi-siamo.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Chi Siamo</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="servizi.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Servizi</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="prenotazione-spid.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">SPID</a>
+    <a class="block text-[#002045]" href="contatti.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contatti</a>
+  </div>
+</header>
+
+<main class="pt-20 md:pt-32 pb-28 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto">
+
+  <!-- Hero Section -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start mb-12 md:mb-24 pt-6 md:pt-0">
+    <div class="lg:col-span-7">
+      <span class="text-secondary font-headline font-bold tracking-widest uppercase text-xs mb-4 block">Entra in contatto</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary leading-[1.1] mb-6 md:mb-8 tracking-tighter">
+        Il Tuo Punto di Riferimento a Clusone.
+      </h1>
+      <p class="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed font-light">
+        Siamo qui per assisterti con i nostri servizi digitali, consulenze SPID o semplicemente per un quotidiano. Passa a trovarci nel cuore storico di Clusone.
+      </p>
+    </div>
+
+    <div class="lg:col-span-5 relative mt-4 lg:mt-12">
+      <div class="bg-surface-container-high rounded-xl aspect-[4/3] md:aspect-[4/5] overflow-hidden shadow-2xl hover:rotate-0 transition-transform duration-500 lg:rotate-2">
+        <img class="w-full h-full object-cover" alt="Interno della tabaccheria Bianchi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGy1OsYp6eBp5jm0_6qkkKyX_2bfOq9P4Q5r9-oJlvuUDNDvvtez28MfY3jS9iP_ytpK3Z6S_8seDy3UBelmvQBKwYADpd-F_twQiHStAOtza51Q9NIYgRdLxqIf9kUACvXhxT-N1tX1OEjwmtgJZ8JHocjOxRBfhzrnX9KFPvwvzy38EaIMTvM0yJDeOvast2yVpTZkksdiW5fDTMxiIFcCLWzsjyCHOKJtZLdEellcRXcOqYwGocAvCe3DbLTvLFpCv3RJw09A"/>
+      </div>
+      <!-- Phone card - repositioned for mobile -->
+      <div class="mt-4 lg:mt-0 lg:absolute lg:-bottom-6 lg:-left-6 bg-secondary-container p-6 md:p-8 rounded-xl shadow-xl max-w-full lg:max-w-[240px]">
+        <span class="material-symbols-outlined text-on-secondary-container text-3xl md:text-4xl mb-3 md:mb-4 block">call</span>
+        <a href="tel:034621194" class="text-on-secondary-container font-headline font-bold text-lg md:text-xl block hover:opacity-80 transition-opacity">0346 21194</a>
+        <p class="text-on-secondary-container/70 text-sm mt-1">Disponibili negli orari di apertura</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Grid: Form and Info -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+
+    <!-- Contact Form Card -->
+    <div class="lg:col-span-2 bg-surface-container-lowest p-6 md:p-10 rounded-xl shadow-sm border border-outline-variant/15">
+      <h2 class="font-headline text-2xl md:text-3xl font-bold text-primary mb-6 md:mb-8">Inviaci un messaggio</h2>
+      <form action="https://formspree.io/f/xoqgjlvj" class="space-y-5 md:space-y-6" method="POST">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-tertiary block">Nome</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary h-12" name="name" placeholder="Mario Rossi" required type="text"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-tertiary block">Email</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary h-12" name="email" placeholder="mario@esempio.it" required type="email"/>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-semibold text-tertiary block">Oggetto del Servizio</label>
+          <select class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary h-12" name="service">
+            <option>Informazioni Generali</option>
+            <option>Supporto SPID / Digitale</option>
+            <option>Ritiro Pacchi</option>
+            <option>Servizi PagoPA</option>
+          </select>
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-semibold text-tertiary block">Messaggio</label>
+          <textarea class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary" name="message" placeholder="Come possiamo aiutarti?" required rows="5"></textarea>
+        </div>
+        <button class="w-full sm:w-auto bg-primary text-on-primary px-8 md:px-10 py-4 rounded-lg font-headline font-bold text-sm tracking-wide uppercase shadow-lg hover:bg-primary-container active:scale-95 transition-all" type="submit">
+          Invia Richiesta
+        </button>
+      </form>
+    </div>
+
+    <!-- Hours and Location Cards -->
+    <div class="space-y-6 md:space-y-8">
+      <!-- Hours -->
+      <div class="bg-surface-container p-6 md:p-8 rounded-xl">
+        <div class="flex items-center gap-3 mb-5 md:mb-6">
+          <span class="material-symbols-outlined text-primary">schedule</span>
+          <h3 class="font-headline text-lg md:text-xl font-bold text-primary">Orari di Apertura</h3>
+        </div>
+        <div class="space-y-4 font-body">
+          <div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+            <span class="text-on-surface-variant text-sm">Lun-Sab (escl. Mer)</span>
+            <div class="text-right">
+              <p class="text-sm font-semibold text-tertiary">07:30 - 12:30</p>
+              <p class="text-sm font-semibold text-tertiary">15:30 - 19:30</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center pb-3 border-b border-outline-variant/20">
+            <span class="text-on-surface-variant text-sm">Mercoledì</span>
+            <p class="text-sm font-semibold text-tertiary">07:30 - 12:30</p>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-on-surface-variant text-sm">Domenica</span>
+            <p class="text-sm font-semibold text-tertiary">07:30 - 12:30</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location Card -->
+      <div class="bg-tertiary-container text-on-tertiary-fixed p-6 md:p-8 rounded-xl shadow-lg">
+        <span class="material-symbols-outlined text-secondary-container text-3xl md:text-4xl mb-3 md:mb-4 block">location_on</span>
+        <h3 class="font-headline text-lg md:text-xl font-bold mb-2">Vieni a Trovarci</h3>
+        <p class="font-body opacity-90 leading-relaxed mb-5 md:mb-6 text-sm md:text-base">
+          Piazza Orologio 2,<br/>
+          24023 Clusone (BG)
+        </p>
+        <a class="inline-flex items-center gap-2 text-secondary-container font-headline font-bold text-sm uppercase tracking-wider hover:gap-4 transition-all" href="https://www.google.com/maps/dir/?api=1&destination=Piazza+Orologio+2+24023+Clusone+BG" target="_blank" rel="noopener">
+          Ottieni Indicazioni <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Width Map Section -->
+  <div class="mt-12 md:mt-20">
+    <div class="bg-surface-container-low rounded-xl overflow-hidden h-[300px] md:h-[450px] relative shadow-inner">
+      <iframe allowfullscreen height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2780.8286096052!2d9.946328376918882!3d45.88418597108428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4783f9888995a5f7%3A0x5c4e9c1e7c5b6b1!2sPiazza%20Orologio%2C%202%2C%2024023%20Clusone%20BG!5e0!3m2!1sen!2sit!4v1715850000000!5m2!1sen!2sit" style="border:0; filter: grayscale(0.5) opacity(0.8);" width="100%"></iframe>
+      <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-auto bg-surface/90 backdrop-blur-md p-4 md:p-6 rounded-lg md:max-w-sm border border-outline-variant/20 pointer-events-none">
+        <h4 class="font-headline font-bold text-primary mb-1 md:mb-2">Piazza Orologio</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Di fronte alla celebre Torre dell'Orologio Fanzago, nel cuore del borgo.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-[#fcf9f2] z-50 rounded-t-xl border-t border-[#c4c6cf]/15 shadow-[0_-4px_24px_-2px_rgba(28,28,24,0.04)]">
+  <a class="flex flex-col items-center justify-center text-[#321a13]/60" href="home.html">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-[10px] font-medium">Home</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#321a13]/60" href="servizi.html">
+    <span class="material-symbols-outlined">grid_view</span>
+    <span class="text-[10px] font-medium">Servizi</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#321a13]/60" href="prenotazione-spid.html">
+    <span class="material-symbols-outlined">event_available</span>
+    <span class="text-[10px] font-medium">Prenota</span>
+  </a>
+  <a class="flex flex-col items-center justify-center bg-[#d6e3ff] text-[#002045] rounded-xl px-4 py-1" href="contatti.html">
+    <span class="material-symbols-outlined">person</span>
+    <span class="text-[10px] font-medium">Contatti</span>
+  </a>
+</nav>
+
+<!-- Footer -->
+<footer class="bg-[#4a2f27] text-[#fcf9f2] w-full mt-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-12 max-w-7xl mx-auto">
+    <div>
+      <h2 class="font-headline font-bold text-[#fed65b] text-2xl mb-4 md:mb-6">Bianchi</h2>
+      <p class="font-body text-sm leading-relaxed mb-6 md:mb-8 max-w-xs opacity-80">
+        Dal 1920, il punto di riferimento per informazione e servizi alla comunità di Clusone.
+      </p>
+      <div class="flex flex-wrap gap-4 md:gap-6 font-body text-sm opacity-80">
+        <a class="text-[#fcf9f2]/80 hover:text-[#fed65b] transition-colors" href="privacy-policy.html">Privacy Policy</a>
+        <a class="text-[#fcf9f2]/80 hover:text-[#fed65b] transition-colors" href="termini.html">Termini di Servizio</a>
+        <a class="text-[#fcf9f2]/80 hover:text-[#fed65b] transition-colors" href="cookie-policy.html">Cookie Policy</a>
+      </div>
+    </div>
+    <div class="border-t border-[#fcf9f2]/10 md:border-none pt-6 md:pt-0 md:text-right">
+      <div class="mb-6 text-xs opacity-70 font-body">
+        <h4 class="font-bold text-[#fed65b] mb-2 uppercase tracking-tighter">Orari</h4>
+        <p>Lun-Sab (escl. Mer): 07:30-12:30, 15:30-19:30</p>
+        <p>Mercoledì e Domenica: 07:30-12:30</p>
+      </div>
+      <h3 class="font-headline font-bold text-[#fed65b] mb-4">I Nostri Servizi</h3>
+      <div class="grid grid-cols-2 gap-4 text-sm leading-relaxed opacity-80 font-body md:justify-end">
+        <ul class="space-y-2">
+          <li>Edicola &amp; Riviste</li>
+          <li>Servizio SPID</li>
+          <li>Lotto &amp; Giochi</li>
+        </ul>
+        <ul class="space-y-2">
+          <li>PagoPA</li>
+          <li>Ritiro Pacchi</li>
+          <li>Digital Concierge</li>
+        </ul>
+      </div>
+      <p class="mt-8 md:mt-12 text-xs opacity-50 font-body">© 2026 Tabaccheria Bianchi. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

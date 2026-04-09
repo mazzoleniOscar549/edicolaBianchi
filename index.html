@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#e9c349",
+                        "outline-variant": "#c4c6cf",
+                        "secondary": "#735c00",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#4a2f27",
+                        "primary-fixed": "#d6e3ff",
+                        "primary": "#002045",
+                        "inverse-on-surface": "#f3f0e9",
+                        "background": "#fcf9f2",
+                        "secondary-fixed": "#ffe088",
+                        "on-primary-fixed": "#001b3c",
+                        "on-secondary-fixed-variant": "#574500",
+                        "surface-container-high": "#ebe8e1",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fcf9f2",
+                        "inverse-surface": "#31312c",
+                        "tertiary-fixed": "#ffdbd0",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-variant": "#e5e2db",
+                        "surface-container": "#f1eee7",
+                        "surface-bright": "#fcf9f2",
+                        "tertiary": "#321a13",
+                        "on-tertiary-container": "#bc968b",
+                        "surface-dim": "#dcdad3",
+                        "surface-tint": "#455f88",
+                        "on-background": "#1c1c18",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-secondary-container": "#745c00",
+                        "outline": "#74777f",
+                        "tertiary-fixed-dim": "#e7bdb1",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#fed65b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#43474e",
+                        "surface-container-highest": "#e5e2db",
+                        "on-tertiary-fixed": "#2c160e",
+                        "on-tertiary-fixed-variant": "#5d4037",
+                        "surface-container-low": "#f6f3ec",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#86a0cd",
+                        "on-surface": "#1c1c18",
+                        "primary-container": "#1a365d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Work Sans"],
+                        "label": ["Work Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #002045 0%, #1a365d 100%);
+        }
+        .animate-bounce-subtle {
+            animation: bounce-subtle 2s infinite;
+        }
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(-2%); }
+            50% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f2]/80 backdrop-blur-md shadow-sm">
+  <div class="flex justify-between items-center px-4 md:px-8 h-16 md:h-20">
+    <div class="text-xl md:text-2xl font-black tracking-tighter text-[#002045] uppercase font-headline">
+      Bianchi
+    </div>
+
+    <!-- Menu desktop -->
+    <div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight text-sm uppercase">
+      <a class="text-[#002045] border-b-2 border-[#fed65b] pb-1" href="index.html">Home</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="chi-siamo.html">Chi Siamo</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="servizi.html">Servizi</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="prenotazione-spid.html">SPID</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-all" href="contatti.html">Contatti</a>
+    </div>
+
+    <!-- Hamburger mobile -->
+    <button class="md:hidden text-[#002045]" id="menu-btn" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </div>
+
+  <!-- Menu mobile a tendina -->
+  <div class="hidden md:hidden bg-[#fcf9f2] border-t border-outline-variant/20 px-6 py-4 space-y-4 font-headline font-bold text-sm uppercase" id="mobile-menu">
+    <a class="block text-[#002045] border-b border-outline-variant/20 pb-3" href="index.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="chi-siamo.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Chi Siamo</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="servizi.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Servizi</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="prenotazione-spid.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">SPID</a>
+    <a class="block text-[#1c1c18]/70" href="#contacts" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contatti</a>
+  </div>
+</nav>
+
+
+
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-8 py-20 max-w-7xl mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 z-10">
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold text-primary leading-[1.1] mb-6 tracking-tighter">
+                Tabaccheria Edicola <span class="text-secondary">Bianchi</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-medium max-w-xl leading-relaxed mb-10">
+                Le sorelle Bianchi - Il tuo punto di riferimento in Piazza Orologio. Tradizione e servizi digitali nel cuore di Clusone.
+            </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-gradient-primary text-on-primary px-8 py-4 rounded-lg font-headline font-bold text-lg shadow-lg hover:translate-y-[-2px] transition-all inline-block text-center" href="{{DATA:SCREEN:SCREEN_33}}">
+                    Scopri i Servizi
+                </a>
+<a class="border border-outline-variant/30 text-primary px-8 py-4 rounded-lg font-headline font-bold text-lg hover:bg-surface-container transition-all inline-block text-center" href="#map-section">
+                    Vieni a Trovarci
+                </a>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square rounded-full overflow-hidden border-[16px] border-surface-container-low shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="Historic Italian piazza with a clock tower and charming storefronts at sunset with warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvy905lISeoyghXgmTWnknbwZsJG2SCmLADaKJG8mjtv019IOxda9E2fnCmL82p7meIMT0lqnIR7CwnutLnFBK15wZhYF2N0-gb8PmajYXQv0FdnBs7JO0ZpV_WEQ5mup_xwTj1WcD7TIJ-HJq28sEoHOvN-ShRsAYyZxLorSKf9ehrQay1Ryi9WMpuHZDdR3z3tBvYX18EtO9Pbdty0anw2Wvpm6QT6uJWn2PbFAh-goF5ElOLv3fGvvhLwWkeIjcBIs4RHWajA"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-xl shadow-xl border border-outline-variant/15 max-w-[200px]">
+<span class="material-symbols-outlined text-secondary text-4xl mb-2" data-weight="fill">verified</span>
+<p class="font-headline font-bold text-primary">Dal 1923 al servizio della comunità</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Bento Grid -->
+<section class="bg-surface-container-low py-24 px-8" id="services">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="text-4xl font-headline font-extrabold text-primary mb-4 tracking-tight">I Nostri Servizi</h2>
+<div class="w-24 h-1.5 bg-secondary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Physical Goods -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/15 hover:translate-y-[-4px] transition-all group">
+<a class="block" href="servizi.html">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-weight="fill">smoking_rooms</span>
+<h3 class="text-2xl font-headline font-bold text-primary mb-4">Tabacchi e Svapo</h3>
+<p class="text-on-surface-variant leading-relaxed">Vasta selezione di tabacchi, accessori e le ultime novità nel mondo del vaping.</p>
+</a>
+</div>
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/15 hover:translate-y-[-4px] transition-all">
+<a class="block" href="servizi.html">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-weight="fill">menu_book</span>
+<h3 class="text-2xl font-headline font-bold text-primary mb-4">Edicola e Riviste</h3>
+<p class="text-on-surface-variant leading-relaxed">Tutti i quotidiani locali e nazionali, riviste specializzate e collezionismo.</p>
+</a>
+</div>
+<!-- Games -->
+<div class="md:col-span-4 lg:col-span-1 bg-secondary-container p-8 rounded-xl hover:translate-y-[-4px] transition-all cursor-pointer">
+<a class="block" href="servizi.html">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl mb-6">casino</span>
+<h3 class="text-xl font-headline font-bold text-on-secondary-container mb-2">Lotto &amp; Gratta e Vinci</h3>
+<p class="text-on-secondary-fixed-variant text-sm">Prova la fortuna con Lotto, 10eLotto e i concorsi nazionali.</p>
+</a>
+</div>
+<!-- Digital Services (The Digital Concierge) -->
+<div class="md:col-span-4 lg:col-span-3 bg-primary-container p-8 rounded-xl relative overflow-hidden text-on-primary">
+<a class="block relative z-10" href="servizi.html">
+<h3 class="text-3xl font-headline font-extrabold mb-6">Digital Services</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg flex flex-col items-center text-center">
+<span class="material-symbols-outlined mb-2" data-weight="fill">fingerprint</span>
+<span class="text-xs font-bold uppercase tracking-widest">SPID</span>
+</div>
+<div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg flex flex-col items-center text-center">
+<span class="material-symbols-outlined mb-2">package_2</span>
+<span class="text-xs font-bold uppercase tracking-widest">Amazon Hub</span>
+</div>
+<div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg flex flex-col items-center text-center">
+<span class="material-symbols-outlined mb-2">payments</span>
+<span class="text-xs font-bold uppercase tracking-widest">PagoPA</span>
+</div>
+<div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg flex flex-col items-center text-center">
+<span class="material-symbols-outlined mb-2">description</span>
+<span class="text-xs font-bold uppercase tracking-widest">Bollettini</span>
+</div>
+</div>
+<p class="mt-8 text-on-primary-container text-sm font-medium">E inoltre: Punto Poste, Ricariche telefoniche e Valori Bollati. <span class="underline ml-2">Scopri di più →</span></p>
+</a>
+<div class="absolute right-[-10%] bottom-[-20%] opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px]">qr_code_2</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hours & Contact Section -->
+<section class="py-24 px-8 max-w-7xl mx-auto" id="hours">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<div class="bg-surface-container-high p-10 rounded-2xl">
+<h2 class="text-3xl font-headline font-extrabold text-primary mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">schedule</span>
+                Orari di Apertura
+            </h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-4 bg-surface-container-lowest rounded-lg">
+<span class="font-headline font-bold text-primary">Lun - Sab (eccetto Mer)</span>
+<span class="text-tertiary font-medium">07:30 – 12:30 e 15:30 – 17:30</span>
+</div>
+<div class="flex justify-between items-center p-4 border border-outline-variant/30 rounded-lg">
+<span class="font-headline font-bold text-primary">Mercoledì</span>
+<span class="text-tertiary font-medium">07:30 – 12:30</span>
+</div>
+<div class="flex justify-between items-center p-4 border border-outline-variant/30 rounded-lg">
+<span class="font-headline font-bold text-primary">Domenica</span>
+<span class="text-tertiary font-medium">07:30 – 12:30</span>
+</div>
+</div>
+<div class="mt-12 pt-12 border-t border-outline-variant/30" id="contacts">
+<h3 class="text-xl font-headline font-extrabold text-primary mb-6">Contatti</h3>
+<a class="flex items-center gap-4 text-primary hover:text-secondary transition-colors text-2xl font-bold mb-4" href="tel:034621194">
+<span class="material-symbols-outlined">call</span>
+                    0346 21194
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-secondary transition-colors font-medium mb-4" href="mailto:edicolabianchi@tiscali.it">
+<span class="material-symbols-outlined">mail</span>
+                    edicolabianchi@tiscali.it
+                </a>
+<p class="flex items-center gap-4 text-on-surface-variant font-medium">
+<span class="material-symbols-outlined">location_on</span>
+                    Piazza Orologio 2, Clusone (BG)
+                </p>
+</div>
+</div>
+<div class="h-full min-h-[450px] rounded-2xl overflow-hidden shadow-xl border border-outline-variant/15 relative bg-surface-container" id="map-section">
+<iframe allowfullscreen="" frameborder="0" height="100%" src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY_HERE&amp;q=Piazza+Orologio+2,+Clusone+Bergamo+Italy" style="border:0; min-height: 450px;" width="100%">
+</iframe>
+<!-- Note: In a real implementation, a valid Google Maps API Key is required. Using a generic embed URL for visual representation if key is missing. -->
+<iframe allowfullscreen="" class="absolute inset-0 w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Piazza+Orologio+2,+Clusone&amp;output=embed" style="border:0;">
+</iframe>
+<div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl border border-outline-variant/20 shadow-2xl pointer-events-none">
+<p class="text-primary font-headline font-bold text-lg mb-1">Ci trovi qui</p>
+<p class="text-on-surface-variant text-sm">Nel cuore storico di Clusone, proprio di fronte all'Orologio Planetario Fanzago.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<<!-- Footer -->
+<footer class="bg-[#4a2f27] dark:bg-stone-950 text-[#fed65b] font-['Work_Sans'] text-sm">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 md:px-12 py-10 md:py-16 w-full max-w-7xl mx-auto">
+    <div class="space-y-6">
+      <div class="text-white font-['Manrope'] font-bold text-2xl">BIANCHI</div>
+      <p class="text-stone-300 max-w-xs leading-relaxed">
+        © 2026 Tabaccheria Edicola Bianchi - Piazza Orologio, Clusone. Da generazioni al vostro servizio.
+      </p>
+      <div class="flex flex-wrap gap-4 text-stone-300">
+        <a class="hover:text-[#fed65b] transition-colors" href="privacy-policy.html">Privacy Policy</a>
+        <a class="hover:text-[#fed65b] transition-colors" href="termini.html">Terms of Service</a>
+        <a class="hover:text-[#fed65b] transition-colors" href="cookie-policy.html">Accessibility</a>
+      </div>
+    </div>
+    <div class="flex flex-col md:items-end justify-center mt-4 md:mt-0">
+      <div class="md:text-right">
+        <p class="text-white font-headline font-bold text-lg mb-2">Hai bisogno di aiuto?</p>
+        <p class="text-stone-400 mb-6">Usa il nostro Concierge Digitale per risposte rapide.</p>
+        <div class="flex gap-4">
+          <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-container transition-all cursor-pointer">
+            <span class="material-symbols-outlined text-sm" onclick="if(navigator.share){navigator.share({title:'Tabaccheria Bianchi',url:window.location.href})}else{alert('Sharing not supported on this browser')}">share</span>
+          </span>
+          <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-container transition-all" href="mailto:edicolabianchi@tiscali.it">
+            <span class="material-symbols-outlined text-sm">mail</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Promotional Pop-up (Centered) 
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-primary/40 backdrop-blur-sm">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-2xl shadow-2xl overflow-hidden border border-outline-variant/20 relative animate-bounce-subtle">
+<div class="bg-secondary-container p-6 text-center">
+<span class="material-symbols-outlined text-on-secondary-container text-5xl mb-2" data-weight="fill">card_giftcard</span>
+<h3 class="text-2xl font-headline font-extrabold text-on-secondary-container">Promozione Digitale</h3>
+</div>
+<div class="p-8 text-center">
+<p class="text-primary font-bold text-xl mb-4">Attiva il tuo SPID in negozio!</p>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Vieni a trovarci questa settimana e ricevi assistenza gratuita per la configurazione della tua identità digitale.</p>
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-headline font-bold text-lg hover:bg-primary-container transition-all" onclick="this.closest('.fixed').style.display='none'">
+                Ho Capito
+            </button>
+</div>
+<button class="absolute top-4 right-4 text-on-secondary-container/50 hover:text-on-secondary-container transition-colors" onclick="this.closest('.fixed').style.display='none'">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+
+-->
+
+
+<!-- SideNavBar (Chatbot Widget) -->
+<div class="fixed right-6 bottom-6 flex flex-col items-end z-40">
+<button class="w-16 h-16 bg-gradient-primary rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition-transform active:scale-95 group mb-4" id="chat-toggle-btn" onclick="document.getElementById('chat-window').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">chat_bubble</span>
+</button>
+<div class="hidden fixed right-6 bottom-24 w-80 rounded-2xl overflow-hidden bg-white/95 dark:bg-stone-900/95 backdrop-blur-xl shadow-2xl border border-outline-variant/15 flex flex-col font-['Work_Sans'] font-medium" id="chat-window">
+<div class="p-4 border-b border-outline-variant/10 flex items-center justify-between bg-primary/5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">smart_toy</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#002045] font-headline">Bianchi Concierge</p>
+<p class="text-[10px] text-stone-500">Assistente Digitale</p>
+</div>
+</div>
+<button class="text-stone-400 hover:text-primary transition-colors" onclick="document.getElementById('chat-window').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-4 min-h-[300px]">
+<div class="space-y-2" id="chat-screen-main">
+<p class="text-xs text-stone-500 mb-4">Come possiamo aiutarti oggi?</p>
+<button class="w-full flex items-center gap-3 p-3 bg-[#d6e3ff] text-[#002045] rounded-lg hover:translate-x-1 transition-all" onclick="showChatScreen('spid')">
+<span class="material-symbols-outlined text-xl">fingerprint</span>
+<span class="text-sm">Servizi SPID</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 text-stone-600 hover:bg-stone-100 hover:translate-x-1 transition-all" onclick="showChatScreen('hours')">
+<span class="material-symbols-outlined text-xl">schedule</span>
+<span class="text-sm">Orari di Apertura</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 text-stone-600 hover:bg-stone-100 hover:translate-x-1 transition-all" onclick="showChatScreen('location')">
+<span class="material-symbols-outlined text-xl">location_on</span>
+<span class="text-sm">Posizione e Mappa</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 text-stone-600 hover:bg-stone-100 hover:translate-x-1 transition-all" onclick="showChatScreen('products')">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+<span class="text-sm">Prodotti Disponibili</span>
+</button>
+</div>
+<div class="hidden space-y-4" id="chat-screen-spid">
+<div class="flex items-center gap-2 mb-2">
+<button class="text-stone-400 hover:text-primary" onclick="showChatScreen('main')"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-primary">Info SPID</span>
+</div>
+<p class="text-sm text-on-surface-variant">Offriamo assistenza gratuita per l'attivazione della tua identità digitale. Porta con te un documento valido, tessera sanitaria ed il tuo smartphone.</p> 
+<!--<div class="bg-secondary-container/20 p-3 rounded-lg text-xs font-medium">
+                    Promozione: Assistenza gratuita questa settimana!
+                </div> -->
+</div>
+<div class="hidden space-y-4" id="chat-screen-hours">
+<div class="flex items-center gap-2 mb-2">
+<button class="text-stone-400 hover:text-primary" onclick="showChatScreen('main')"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-primary">I Nostri Orari</span>
+</div>
+<div class="text-xs space-y-2">
+<p class="flex justify-between"><span>Lun-Sab (No Mer)</span> <span class="font-bold">07:30-12:30, 15:30-17:30</span></p>
+<p class="flex justify-between"><span>Mercoledì</span> <span class="font-bold">07:30-12:30</span></p>
+<p class="flex justify-between"><span>Domenica</span> <span class="font-bold">07:30-12:30</span></p>
+</div>
+</div>
+<div class="hidden space-y-4" id="chat-screen-location">
+<div class="flex items-center gap-2 mb-2">
+<button class="text-stone-400 hover:text-primary" onclick="showChatScreen('main')"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-primary">Dove Siamo</span>
+</div>
+<p class="text-sm">Piazza Orologio 2, Clusone (BG)</p>
+<a class="block w-full bg-primary text-on-primary py-2 text-center rounded text-sm font-bold" href="#map-section">Apri in Google Maps</a>
+</div>
+<div class="hidden space-y-4" id="chat-screen-products">
+<div class="flex items-center gap-2 mb-2">
+<button class="text-stone-400 hover:text-primary" onclick="showChatScreen('main')"><span class="material-symbols-outlined">arrow_back</span></button>
+<span class="font-bold text-primary">Prodotti</span>
+</div>
+<ul class="text-sm space-y-2 text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">check_circle</span> Tabacchi e Svapo</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">check_circle</span> Edicola e Riviste</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">check_circle</span> Lotto e Gratta e Vinci</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">check_circle</span> Valori Bollati</li>
+</ul>
+</div>
+</div>
+<div class="p-4 bg-stone-50 dark:bg-stone-800/50">
+<button class="w-full border border-primary text-primary py-2 rounded-lg font-bold text-xs uppercase tracking-widest" onclick="window.location.hash='#contacts'; document.getElementById('chat-window').classList.add('hidden')">
+                Chiama in Negozio
+            </button>
+</div>
+</div>
+</div>
+<script>
+    function showChatScreen(screenId) {
+        const screens = ['main', 'spid', 'hours', 'location', 'products'];
+        screens.forEach(id => {
+            const el = document.getElementById('chat-screen-' + id);
+            if (el) {
+                if (id === screenId) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            }
+        });
+    }
+</script>
+</body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="light" lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prenotazione SPID - La Tabaccheria Bianchi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-tertiary-fixed-variant": "#5d4037",
+          "error-container": "#ffdad6",
+          "surface-tint": "#455f88",
+          "on-tertiary-container": "#bc968b",
+          "surface": "#fcf9f2",
+          "surface-container": "#f1eee7",
+          "tertiary-container": "#4a2f27",
+          "primary-fixed-dim": "#adc7f7",
+          "outline-variant": "#c4c6cf",
+          "inverse-on-surface": "#f3f0e9",
+          "on-secondary": "#ffffff",
+          "tertiary-fixed": "#ffdbd0",
+          "tertiary-fixed-dim": "#e7bdb1",
+          "secondary-container": "#fed65b",
+          "on-background": "#1c1c18",
+          "on-primary": "#ffffff",
+          "on-surface": "#1c1c18",
+          "tertiary": "#321a13",
+          "inverse-primary": "#adc7f7",
+          "secondary-fixed-dim": "#e9c349",
+          "secondary-fixed": "#ffe088",
+          "on-secondary-fixed-variant": "#574500",
+          "surface-container-low": "#f6f3ec",
+          "on-tertiary-fixed": "#2c160e",
+          "surface-container-lowest": "#ffffff",
+          "error": "#ba1a1a",
+          "on-tertiary": "#ffffff",
+          "background": "#fcf9f2",
+          "surface-container-high": "#ebe8e1",
+          "on-error": "#ffffff",
+          "surface-dim": "#dcdad3",
+          "surface-container-highest": "#e5e2db",
+          "primary-fixed": "#d6e3ff",
+          "on-surface-variant": "#43474e",
+          "inverse-surface": "#31312c",
+          "on-primary-container": "#86a0cd",
+          "on-secondary-container": "#745c00",
+          "outline": "#74777f",
+          "on-primary-fixed-variant": "#2d476f",
+          "on-error-container": "#93000a",
+          "surface-variant": "#e5e2db",
+          "primary-container": "#1a365d",
+          "on-primary-fixed": "#001b3c",
+          "secondary": "#735c00",
+          "primary": "#002045",
+          "surface-bright": "#fcf9f2",
+          "on-secondary-fixed": "#241a00"
+        },
+        borderRadius: {
+          DEFAULT: "0.125rem",
+          lg: "0.25rem",
+          xl: "0.5rem",
+          full: "0.75rem"
+        },
+        fontFamily: {
+          headline: ["Manrope"],
+          body: ["Work Sans"],
+          label: ["Work Sans"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #002045 0%, #1a365d 100%);
+  }
+  body { font-family: 'Work Sans', sans-serif; }
+  h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+</style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f2]/80 backdrop-blur-md shadow-sm border-b border-[#f6f3ec]/50">
+  <div class="flex justify-between items-center px-4 md:px-8 h-16 md:h-20">
+    <a class="text-xl md:text-2xl font-black tracking-tighter text-[#002045] uppercase font-headline hover:opacity-80 transition-opacity" href="home.html">Bianchi</a>
+
+    <!-- Menu desktop -->
+    <div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight text-sm uppercase absolute left-1/2 -translate-x-1/2">
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-colors" href="home.html">Home</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-colors" href="chi-siamo.html">Chi Siamo</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-colors" href="servizi.html">Servizi</a>
+      <a class="text-[#002045] border-b-2 border-[#fed65b] pb-1" href="prenotazione-spid.html">SPID</a>
+      <a class="text-[#1c1c18]/70 hover:text-[#002045] transition-colors" href="contatti.html">Contatti</a>
+    </div>
+
+    <!-- Hamburger mobile -->
+    <button class="md:hidden text-[#002045]" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </div>
+
+  <!-- Menu mobile a tendina -->
+  <div class="hidden md:hidden bg-[#fcf9f2] border-t border-outline-variant/20 px-6 py-4 space-y-4 font-headline font-bold text-sm uppercase" id="mobile-menu">
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="home.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="chi-siamo.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Chi Siamo</a>
+    <a class="block text-[#1c1c18]/70 border-b border-outline-variant/20 pb-3" href="servizi.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Servizi</a>
+    <a class="block text-[#002045] border-b border-outline-variant/20 pb-3" href="prenotazione-spid.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">SPID</a>
+    <a class="block text-[#1c1c18]/70" href="contatti.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contatti</a>
+  </div>
+</nav>
+
+<main class="pt-20 md:pt-28 pb-24 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto">
+
+  <!-- Hero Header -->
+  <header class="mb-12 md:mb-20 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center pt-6 md:pt-0">
+    <div class="order-2 lg:order-1">
+      <span class="inline-block px-4 py-1.5 rounded-md bg-primary-fixed text-on-primary-fixed-variant text-xs font-bold uppercase tracking-widest mb-5 md:mb-6">Servizio Certificato</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-primary leading-[1.1] mb-4 md:mb-6">Prenota il tuo SPID in pochi minuti.</h1>
+      <p class="text-base md:text-lg text-on-surface-variant leading-relaxed max-w-xl">Evita le attese e attiva la tua identità digitale con il supporto dei nostri esperti. La Tabaccheria Bianchi è punto convenzionato per il rilascio immediato.</p>
+    </div>
+    <div class="order-1 lg:order-2 relative">
+      <div class="aspect-[4/3] rounded-xl overflow-hidden bg-surface-container shadow-2xl">
+        <img alt="Documenti di identità e tablet su scrivania" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAfv55j1qr6QXhOBH1BfavnQjvu8RiJtgaNX5b3AWfq2G9EYHmD74OnThMTRJP49Zp_EQYMy7JmzPPTXbybWUjMOxubEdlEKhH8rGPSmhxT7NRMkU9e8MMWPr3MNWsA0wYHAJaqJU5dZdT7QPPKokffvlsGw50Df7t0Hht-zHP8-sEFilCDbD4wvPJ4VBli_kbSz8pMzF3y4YhIJ6kQmlEZRT6Fkgi-YIjMqyXU-rYt3Z39c7egl3s3Ni1VTYjVIXDyO3_nuIvTQ"/>
+      </div>
+      <!-- Glass Card Overlay - hidden on small screens -->
+      <div class="absolute -bottom-6 -left-6 hidden md:block p-6 rounded-xl bg-white/60 backdrop-blur-xl border border-white/20 shadow-xl max-w-xs">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-secondary">verified_user</span>
+          <span class="font-bold text-primary">Identità Protetta</span>
+        </div>
+        <p class="text-sm text-on-surface-variant">Attivazione sicura secondo gli standard AGID presso la nostra sede fisica.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
+
+    <!-- Instructions Panel -->
+    <div class="lg:col-span-5 space-y-6 md:space-y-8">
+      <div class="bg-surface-container-low p-6 md:p-8 rounded-xl">
+        <h2 class="text-xl md:text-2xl font-bold text-primary mb-6 md:mb-8 flex items-center gap-3">
+          <span class="material-symbols-outlined text-secondary">assignment</span>
+          Cosa portare all'appuntamento
+        </h2>
+        <ul class="space-y-5 md:space-y-6">
+          <li class="flex gap-4">
+            <div class="w-10 h-10 shrink-0 rounded-md bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container">badge</span>
+            </div>
+            <div>
+              <span class="block font-bold text-primary">Documento d'Identità</span>
+              <span class="text-sm text-on-surface-variant">Carta d'identità (italiana), patente o passaporto in corso di validità.</span>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="w-10 h-10 shrink-0 rounded-md bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container">credit_card</span>
+            </div>
+            <div>
+              <span class="block font-bold text-primary">Tessera Sanitaria</span>
+              <span class="text-sm text-on-surface-variant">O tesserino del codice fiscale leggibile e integro.</span>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="w-10 h-10 shrink-0 rounded-md bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container">smartphone</span>
+            </div>
+            <div>
+              <span class="block font-bold text-primary">Smartphone &amp; Email</span>
+              <span class="text-sm text-on-surface-variant">Dovrai poter accedere alla tua email e ricevere un SMS durante la procedura.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="p-6 md:p-8 rounded-xl bg-primary-container text-white">
+        <h3 class="font-bold text-lg mb-2">Hai bisogno di aiuto?</h3>
+        <p class="text-on-primary-container text-sm mb-5 md:mb-6">Se non trovi un orario compatibile con le tue esigenze, chiamaci direttamente.</p>
+        <a href="tel:034621194" class="flex items-center gap-3 font-medium hover:text-secondary-container transition-colors">
+          <span class="material-symbols-outlined">call</span>
+          <span>+39 0346 21194</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Booking Form Card -->
+    <div class="lg:col-span-7">
+      <div class="bg-surface-container-lowest p-6 md:p-10 lg:p-12 rounded-xl shadow-[0_12px_32px_-4px_rgba(28,28,24,0.06)]">
+        <h2 class="text-xl md:text-2xl font-bold text-primary mb-6 md:mb-8">Modulo di Prenotazione</h2>
+        <form action="https://formspree.io/f/your-id" class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6" method="POST">
+          <div class="space-y-2">
+            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="nome">Nome</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary py-3 px-4 text-on-surface" id="nome" name="nome" placeholder="Es. Mario" required type="text"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="cognome">Cognome</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary py-3 px-4 text-on-surface" id="cognome" name="cognome" placeholder="Es. Rossi" required type="text"/>
+          </div>
+          <div class="space-y-2 sm:col-span-2">
+            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="email">Email (opzionale)</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary py-3 px-4 text-on-surface" id="email" name="email" placeholder="mario.rossi@email.it" type="email"/>
+          </div>
+          <div class="space-y-2 sm:col-span-2">
+            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="telefono">Telefono (opzionale)</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary py-3 px-4 text-on-surface" id="telefono" name="telefono" placeholder="+39 333 123 4567" type="tel"/>
+          </div>
+
+          <div class="space-y-4 sm:col-span-2 mt-2 md:mt-4">
+            <h3 class="text-sm font-bold text-primary border-b border-outline-variant/20 pb-2">Selezione Data e Orario</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="data">Data</label>
+                <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary py-3 px-4 text-on-surface" id="data" name="data" required type="date"/>
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="orario">Fascia Oraria</label>
+                <select class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary py-3 px-4 text-on-surface appearance-none" id="orario" name="orario">
+                  <option>Mattina (09:00 - 12:30)</option>
+                  <option>Pomeriggio (15:30 - 19:00)</option>
+                  <option>Sabato Mattina (09:00 - 12:00)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2 mt-4 md:mt-8">
+            <button class="w-full bg-primary hover:bg-primary-container text-white py-4 rounded-full font-bold transition-all shadow-lg flex items-center justify-center gap-3" type="submit">
+              Conferma Prenotazione
+              <span class="material-symbols-outlined">calendar_month</span>
+            </button>
+            <p class="text-center text-[10px] text-on-surface-variant mt-4">Premendo il tasto, acconsenti al trattamento dei dati personali per la gestione della prenotazione.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-[#fcf9f2] z-50 rounded-t-xl border-t border-[#c4c6cf]/15 shadow-[0_-4px_24px_-2px_rgba(28,28,24,0.04)]">
+  <a class="flex flex-col items-center justify-center text-[#321a13]/60" href="home.html">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-[10px] font-medium font-body">Home</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#321a13]/60" href="servizi.html">
+    <span class="material-symbols-outlined">grid_view</span>
+    <span class="text-[10px] font-medium font-body">Servizi</span>
+  </a>
+  <a class="flex flex-col items-center justify-center bg-[#d6e3ff] text-[#002045] rounded-xl px-4 py-1" href="prenotazione-spid.html">
+    <span class="material-symbols-outlined">event_available</span>
+    <span class="text-[10px] font-medium font-body">Prenota</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#321a13]/60" href="chi-siamo.html">
+    <span class="material-symbols-outlined">person</span>
+    <span class="text-[10px] font-medium font-body">Chi Siamo</span>
+  </a>
+</nav>
+
+<!-- Footer -->
+<footer class="w-full py-10 md:py-12 px-6 md:px-8 bg-[#4a2f27] mt-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full max-w-7xl mx-auto">
+    <div>
+      <div class="font-headline font-bold text-[#fed65b] text-2xl mb-4">La Tabaccheria Bianchi</div>
+      <p class="font-body text-sm leading-relaxed text-[#fcf9f2]/80 max-w-sm mb-6">
+        Il tuo punto di riferimento urbano per servizi digitali, spedizioni e tabacchi dal 1985.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a class="text-[#fcf9f2]/80 hover:text-[#fed65b] transition-colors font-body text-sm underline" href="privacy-policy.html">Privacy Policy</a>
+        <a class="text-[#fcf9f2]/80 hover:text-[#fed65b] transition-colors font-body text-sm underline" href="termini.html">Termini di Servizio</a>
+        <a class="text-[#fcf9f2]/80 hover:text-[#fed65b] transition-colors font-body text-sm underline" href="contatti.html">Contatti</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-[#fed65b] font-bold text-xs uppercase tracking-widest mb-4">Orari di Apertura</h4>
+      <div class="space-y-2">
+        <div class="flex flex-col sm:flex-row sm:justify-between text-[#fcf9f2]/80 text-sm border-b border-[#fcf9f2]/10 pb-2 gap-1">
+          <span>Lunedi - Sabato (escluso Mercoledi)</span>
+          <span class="font-bold text-[#fcf9f2]">07:30 - 12:30, 15:30 - 19:30</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:justify-between text-[#fcf9f2]/80 text-sm border-b border-[#fcf9f2]/10 pb-2 gap-1">
+          <span>Mercoledi e Domenica</span>
+          <span class="font-bold text-[#fcf9f2]">07:30 - 12:30</span>
+        </div>
+      </div>
+      <div class="mt-6 md:mt-8 text-xs text-[#fcf9f2]/50">
+        © 2026 Tabaccheria Bianchi. Tutti i diritti riservati.
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
